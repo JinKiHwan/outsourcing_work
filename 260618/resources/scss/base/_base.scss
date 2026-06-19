@@ -28,6 +28,8 @@ body {
 }
 
 body {
+  font-family: 'Suit';
+
   &.-noneScroll {
     min-height: 100vh;
     overflow: hidden;
@@ -35,7 +37,23 @@ body {
   }
 }
 
+#wrap{
+  width: 100%;
+  overflow: auto;
+}
+
 section {
+  width: 100%;
   max-width: 1920px;
   min-width: 1400px;
+  overflow: hidden;
+
+  margin: 0 auto;
+}
+
+.inner{
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  width: 95%;
 }

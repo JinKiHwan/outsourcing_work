@@ -1,0 +1,66 @@
+.inc02{
+    background: #000 url('../images/inc02_bg.png') no-repeat center bottom/contain;
+    padding: 200px 0 135px;
+
+    .top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 50px 0;
+
+
+        p{
+            position: absolute;
+            font-size: 63px;
+            font-weight: 200;
+            line-height: 1.5;
+            letter-spacing: -1px;
+            b{
+                font-weight: 800;
+            }
+
+            &.lt{
+                left: 0;
+                top: 0;
+                color: #fff;
+            }
+            &.rb{
+                text-align: right;
+                right: 0;
+                bottom: 0;
+                color: #de2828;
+            }
+        }
+    }
+    .bottom{
+        max-width: 1660px;
+        margin-top: 350px;
+        margin-left: auto;
+        margin-right: 0;
+
+        p{
+            font-size: 60px;
+            color: #fff;
+            line-height: 1.5;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 55px;
+        }
+
+        .item_wrap{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+
+            li{
+                width: 49.5%;
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

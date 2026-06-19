@@ -1,0 +1,62 @@
+.inc01{
+    background: #000 url('../images/inc01_bg.png') no-repeat center bottom/contain;
+    .inner {
+        max-width: 1500px;
+    }
+    .top{
+        display: flex;
+        padding-top: 240px;
+        padding-bottom: 105px;
+        align-items: center;
+        gap: 75px;
+
+        .video_area{
+            width: 55%;
+            position: relative;
+            p{
+                font-size: 60px;
+                font-weight: 700;
+                line-height: 1.25;
+                position: absolute;
+                left: 50px;
+                top: -24.5%;
+                color: #fff;
+            }
+            figure{
+                border-radius: 30px;
+                overflow: hidden;
+            }
+        }
+
+        .text_area{
+            p{
+                font-size: 21px;
+                color: #a5a5a5;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .bottom{
+        height: 950px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 75px;
+        text-align: center;
+
+        p{
+            color: #fff;
+            opacity: 0.4;
+            font-size: 36px;
+            line-height: 1.5;
+
+            &.strong{
+                opacity: 1;
+                font-weight: 800;
+                font-size: 60px;
+            }
+        }
+    }
+}

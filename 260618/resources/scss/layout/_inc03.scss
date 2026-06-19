@@ -1,0 +1,24 @@
+.inc03{
+    .inner{
+        height: 850px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+
+        .line{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            
+            p{
+                font-size: 72px;
+                font-weight: 800;
+                color: #0e0e0e;
+                letter-spacing: -1px;
+            }
+        }
+    }
+}
