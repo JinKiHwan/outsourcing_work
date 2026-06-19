@@ -56,9 +56,93 @@
 
             li{
                 width: 49.5%;
-                img{
+                aspect-ratio: 870 / 500;
+                position: relative;
+                overflow: hidden;
+                border-radius: 35px;
+
+                .video_bg {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                     width: 100%;
-                    object-fit: cover;
+                    height: 100%;
+                    z-index: 1;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.45);
+                        z-index: 2;
+                        pointer-events: none;
+                    }
+
+                    iframe {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 100% !important;
+                        height: 100% !important;
+                        border: none;
+                        pointer-events: none;
+                    }
+                }
+
+                &:first-child {
+                    .video_bg iframe {
+                        transform: translate(-50%, -50%) scale(1.3); // 1번 영상 (4:3 비율)에 맞춰 크게 스케일링
+                    }
+                }
+
+                &:last-child {
+                    .video_bg iframe {
+                        transform: translate(-50%, -50%) scale(1.2); // 2번 영상 (1.9:1 비율)에 맞춰 스케일링
+                    }
+                }
+
+                .card_content {
+                    position: relative;
+                    z-index: 3;
+                    width: 100%;
+                    height: 100%;
+                    padding: 55px 45px;
+                    padding-right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+
+                    .num {
+                        font-size: 24px;
+                        color: #de2828;
+                        font-weight: 800;
+                        margin-bottom: 20px;
+                        font-family: 'Suit', sans-serif;
+                    }
+
+                    h3 {
+                        font-size: 38px;
+                        color: #fff;
+                        font-weight: 800;
+                        margin-bottom: 30px;
+                        letter-spacing: -0.5px;
+                    }
+
+                    p {
+                        font-size: 21px;
+                        color: #a5a5a5;
+                        line-height: 1.55;
+                        font-weight: 500;
+                        letter-spacing: -0.3px;
+                        margin-bottom: 0;
+
+                        b{
+                            color: #e3e3e3;
+                        }
+                    }
                 }
             }
         }
