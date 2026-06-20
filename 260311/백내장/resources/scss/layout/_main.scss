@@ -1,0 +1,1132 @@
+@use '../helpers/' as *;
+
+.busan_first {
+  font-family: 'Suit';
+  overflow: auto;
+  background: #010000;
+  color: $c-white;
+
+  section {
+    width: 100%;
+    aspect-ratio: 2/1;
+    min-width: 1400px;
+    max-width: 1920px;
+    overflow: hidden;
+    margin: 0 auto;
+
+    .inner {
+      width: 95%;
+      height: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 170px;
+    }
+  }
+
+  /* MAIN VISUAL */
+  .main_visual {
+    background: url('../images/main_bg.webp') no-repeat center center / cover;
+
+    .inner {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    &_text {
+      p {
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-size: 78px;
+        font-weight: 800;
+        line-height: 1.25;
+
+        span {
+          display: inline-block;
+        }
+
+        .gradient {
+          font-size: 90px;
+          background: linear-gradient(93deg, #ff6a6a, #fb0f0f, #8b89fd, #ff6a6a, #fb0f0f, #8b89fd);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          animation: colorChange 15s ease-in-out infinite;
+        }
+
+        @keyframes colorChange {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      }
+    }
+  }
+
+  /* inc01 */
+  .inc01 {
+    background: url('../images/inc01_bg.webp') no-repeat center bottom / contain;
+    aspect-ratio: auto;
+    .inner {
+      width: 95%;
+      max-width: 1665px;
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &_desc {
+      padding-top: 130px;
+      h2 {
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 60px;
+      }
+      p {
+        font-size: 21px;
+        line-height: 1.5;
+        color: #a5a5a5;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  /* inc02 */
+  .inc02 {
+    padding: 0 0 50px;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    .inner {
+      padding: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_text-gray {
+      position: absolute;
+      left: 0;
+      top: 100px;
+      p {
+        font-size: 60px;
+        font-weight: 300;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 1) 30%, rgba(80, 80, 80, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+        b {
+          font-weight: 800;
+        }
+      }
+    }
+
+    &_text-red {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      p {
+        font-size: 60px;
+        font-weight: 300;
+        background: linear-gradient(170deg, rgba(#de2828, 1) 0%, rgba(#4c0707, 0.3) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        b {
+          font-weight: 800;
+        }
+      }
+    }
+
+    &_lens-choice {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+
+      h2 {
+        font-size: 60px;
+        font-weight: 800;
+        margin-bottom: 35px;
+      }
+      ul {
+        display: flex;
+        gap: 10px;
+
+        li {
+          height: 240px;
+          width: calc(100% / 6);
+          img {
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+
+  /* inc03 */
+  .inc03 {
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    aspect-ratio: auto;
+    padding: 120px 0 300px; /* 위아래 여백을 조금 주면 더 안정적입니다 */
+    height: auto;
+
+    .inner {
+      width: 95%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 70px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 30px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 21px;
+      margin-bottom: 70px;
+    }
+
+    /* ✅ 차트 전체 컨테이너 중앙 정렬 및 반응형 */
+    .chart-container {
+      position: relative;
+      width: 910px;
+      margin: 0 auto; /* 차트를 가운데로 정렬 */
+      aspect-ratio: 1 / 1;
+      margin-bottom: 215px;
+    }
+
+    /* 기존 background / layer 코드 유지 */
+    .chart-grid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 910px;
+      aspect-ratio: 1/1;
+      background-color: #fff7f7;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .chart-target {
+      width: 580px;
+      aspect-ratio: 1/1;
+      background-image: url('../images/inc03_item01.webp');
+      background-size: cover;
+      background-position: center;
+    }
+    .chart-layer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 580px;
+      aspect-ratio: 1/1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      mix-blend-mode: multiply;
+      opacity: 0.8;
+    }
+    .chart-layer-pink {
+      background-image: url('../images/inc03_item02.webp');
+      z-index: 1;
+    }
+    .chart-layer-orange {
+      background-image: url('../images/inc03_item03.webp');
+      z-index: 2;
+    }
+    .chart-layer-red {
+      background-image: url('../images/inc03_item04.webp');
+      z-index: 3;
+    }
+
+    .chart-labels {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .chart-label {
+      position: absolute;
+      width: 12px; /* 마커(점)의 크기를 기준 컨테이너로 사용 */
+      height: 12px;
+      transform: translate(-50%, -50%); /* 정확히 지정된 % 좌표에 마커 중앙이 오도록 설정 */
+
+      .dot {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #d4d4d4; /* 기본 회색 점 */
+        border-radius: 50%;
+      }
+
+      .text {
+        position: absolute;
+        font-size: 24px;
+        color: #333;
+        font-weight: 600;
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+      }
+
+      /* Active 상태일 때의 강조 컬러 */
+      &.active {
+        .dot {
+          background-color: #c92a2a; /* 2번 이미지와 유사한 붉은색 */
+        }
+        .text {
+          color: #c92a2a;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .chart-label-1 {
+      top: 15%;
+      left: 50%;
+      .text {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 12px;
+      }
+    }
+    .chart-label-2 {
+      top: 25%;
+      left: 75%;
+      .text {
+        bottom: 100%;
+        left: 0;
+        margin-bottom: 8px;
+        margin-left: 10px;
+      }
+    }
+    .chart-label-3 {
+      top: 50%;
+      left: 85%;
+      .text {
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        margin-left: 12px;
+      }
+    }
+    .chart-label-4 {
+      top: 75%;
+      left: 75%;
+      .text {
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+        margin-left: 10px;
+      }
+    }
+    .chart-label-5 {
+      top: 85%;
+      left: 50%;
+      .text {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 12px;
+      }
+    }
+    .chart-label-6 {
+      top: 75%;
+      left: 25%;
+      .text {
+        top: 100%;
+        right: 0;
+        margin-top: 8px;
+        margin-right: 10px;
+      }
+    }
+    .chart-label-7 {
+      top: 50%;
+      left: 15%;
+      .text {
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        margin-right: 12px;
+      }
+    }
+    .chart-label-8 {
+      top: 25%;
+      left: 25%;
+      .text {
+        bottom: 100%;
+        right: 0;
+        margin-bottom: 8px;
+        margin-right: 10px;
+      }
+    }
+
+    &_items {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        border-radius: 60px;
+        box-shadow: 0px 28px 46px rgba(#e3c8c8, 0.3);
+        overflow: hidden;
+      }
+    }
+  }
+  /* inc04 */
+  .inc04 {
+    background: #fff;
+    color: #000;
+    aspect-ratio: auto;
+    min-height: 100vh;
+    position: relative;
+    .inner {
+      height: auto;
+    }
+    &_intro-text {
+      h2 {
+        font-size: 60px;
+        font-weight: 800;
+        margin-bottom: 60px;
+      }
+      p {
+        font-size: 21px;
+        line-height: 1.5;
+      }
+    }
+
+    &_images {
+      width: 100%;
+      aspect-ratio: 1920/860;
+      position: relative;
+      z-index: 0;
+      margin-top: 30px;
+
+      figure {
+        position: absolute;
+        opacity: 0;
+        width: 18.5%;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+        &:nth-child(1) {
+          left: -7.375%;
+          top: 0;
+          opacity: 1;
+          z-index: 2;
+        }
+        &:nth-child(2) {
+          left: 12.5%;
+          top: 10%;
+          z-index: 4;
+          opacity: 1;
+        }
+        &:nth-child(3) {
+          left: 12.5%;
+          top: 54%;
+          opacity: 1;
+          z-index: 3;
+        }
+        &:nth-child(4) {
+          left: 32.25%;
+          top: 15.5%;
+          opacity: 1;
+          z-index: 5;
+        }
+        &:nth-child(5) {
+          left: 52%;
+          top: 0;
+          opacity: 1;
+          width: 31.8%;
+          z-index: 7;
+        }
+        &:nth-child(6) {
+          left: 85%;
+          top: -5.5%;
+          opacity: 1;
+          z-index: 6;
+        }
+        &:nth-child(7) {
+          left: 85%;
+          top: 31.5%;
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+    }
+
+    &_scroll-text {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+
+      .inner {
+        width: 100%;
+        max-width: 1500px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 100px 0;
+
+        > div {
+          &.right-bottom {
+            margin-left: auto;
+          }
+        }
+      }
+
+      p {
+        font-size: 60px;
+        font-weight: normal;
+
+        b {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  /* inc05 */
+  .inc05 {
+    overflow: visible;
+    background: #fff;
+    color: #000;
+    aspect-ratio: auto;
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+    display: flex; /* 세로 중앙 정렬을 위해 추가 */
+    align-items: center; /* 세로 중앙 정렬을 위해 추가 */
+
+    &_bg {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1; /* 배경 이미지가 텍스트 뒤로 가도록 설정 */
+    }
+
+    .inner {
+      height: auto;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 0;
+    }
+
+    &_text {
+      .desc {
+        font-size: 30px;
+        margin-bottom: 25px;
+        line-height: 1.4;
+      }
+
+      h2 {
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 60px;
+        letter-spacing: -0.02em;
+      }
+
+      .btn-more {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        color: #e43535; /* 버튼 텍스트 레드 컬러 (이미지 톤에 맞춤) */
+        border: 1px solid #e43535; /* 레드 테두리 */
+        border-radius: 50px; /* 양끝이 둥근 형태 */
+        padding: 24px 45px;
+        text-decoration: none;
+        background: #fff;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  /* inc06 */
+  .inc06 {
+    aspect-ratio: auto;
+    padding-bottom: 750px;
+    hr {
+      background: none;
+      border: none;
+      padding: 10px 0;
+    }
+    .blur {
+      width: 1000px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: #4d110f;
+      opacity: 0.6;
+      filter: blur(100px);
+      position: absolute;
+      z-index: -1;
+    }
+    &_intro {
+      background: url('../images/inc06_bg.webp') no-repeat top center / cover;
+      height: 1000px;
+      position: relative;
+      z-index: 0;
+      .inner {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 100px;
+      }
+
+      .left {
+        p {
+          font-size: 42px;
+          font-weight: 500;
+        }
+        h2 {
+          font-size: 72px;
+          font-weight: 800;
+        }
+      }
+      .right {
+        padding-top: 80px;
+        dt {
+          font-size: 60px;
+          font-weight: 100;
+          margin-bottom: 30px;
+          b {
+            font-weight: 800;
+          }
+        }
+
+        dd {
+          font-size: 21px;
+          color: #cfcfcf;
+          line-height: 1.5;
+        }
+      }
+    }
+    &_machine {
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        width: 105%;
+        aspect-ratio: 10/3;
+        display: block;
+        background: #0c0307;
+        position: absolute;
+        left: 50%; /* 중앙 정렬 시작 */
+        top: 0;
+        transform: translate(-50%, -50%); /* 포인트 2: x축으로 -50% 당겨서 완벽한 중앙 정렬 */
+        border-radius: 50%;
+        z-index: -1;
+        box-shadow: 0 -100px 100px rgba($color: $c-red, $alpha: 0.3);
+      }
+
+      h2 {
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 300px;
+        span {
+          color: #e11d1d;
+        }
+      }
+
+      .machine_intro {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 80px;
+        position: relative;
+        z-index: 0;
+
+        &.casia2 {
+          &::before {
+            content: 'casia2';
+            text-transform: uppercase;
+            position: absolute;
+            left: 40px;
+            top: -150px;
+            z-index: -1;
+            color: #d22a2a;
+            opacity: 0.1;
+            font-family: 'Suit';
+            font-size: 180px;
+            font-weight: 800;
+          }
+
+          .blur {
+            right: 0;
+            bottom: 25%;
+            transform: translate(75%, 50%);
+          }
+        }
+
+        &.pentacam {
+          flex-direction: row-reverse;
+          margin-top: 300px;
+          &::before {
+            content: 'pentacam';
+            text-transform: uppercase;
+            position: absolute;
+            right: 0;
+            top: -150px;
+            z-index: -1;
+            color: #d22a2a;
+            opacity: 0.1;
+            font-family: 'Suit';
+            font-size: 180px;
+            font-weight: 800;
+          }
+
+          .blur {
+            left: 0;
+            bottom: 25%;
+            transform: translate(-75%, 50%);
+          }
+        }
+
+        &.cornea {
+          justify-content: flex-end;
+          padding-right: 30px;
+          height: 320px;
+          > figure {
+            position: absolute;
+            left: 310px;
+            top: -140px;
+          }
+        }
+
+        &.iolmaster {
+          margin-top: 300px;
+          &::before {
+            content: 'IOL Master';
+            text-transform: none;
+            position: absolute;
+            right: -20%;
+            top: 130%;
+            z-index: -1;
+            color: #d22a2a;
+            opacity: 0.25;
+            font-family: 'Suit';
+            font-size: 180px;
+            font-weight: 800;
+            transform: translate(-15%, -50%);
+          }
+          figure {
+            display: flex;
+            justify-content: center;
+
+            &.machine_img {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              transform: translateY(85%);
+            }
+          }
+          .machine_text {
+            margin-right: auto;
+          }
+
+          .blur {
+            right: 0;
+            bottom: 25%;
+            transform: translate(75%, 50%);
+          }
+        }
+
+        .video {
+          width: 700px;
+          aspect-ratio: 700/400;
+          border: 1px solid #242424;
+          border-radius: 45px;
+          overflow: hidden;
+
+          video,
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .machine_text {
+          padding-top: 40px;
+
+          .machine_name {
+            color: #e11d1d;
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+          }
+
+          .machine_desc {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 40px;
+          }
+
+          ul {
+            li {
+              font-size: 24px;
+              display: flex;
+              align-items: center;
+              span {
+                font-size: 40px;
+                color: #d22a2a;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        .machine_extra_text {
+          color: #a5a5a5;
+          font-size: 24px;
+          line-height: 1.5;
+        }
+
+        .machine_ps {
+          margin-top: 20px;
+          font-size: 18px;
+          color: #a5a5a5;
+        }
+      }
+    }
+  }
+
+  /* inc07 */
+  .inc07 {
+    background: url('../images/inc07_bg.webp') no-repeat center center/cover;
+    padding: 0;
+    aspect-ratio: auto;
+    .inner {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 75px;
+      font-weight: 800;
+      text-align: center;
+      color: rgba($color: #fff, $alpha: 0.5);
+      margin-bottom: 80px;
+      span {
+        color: transparent; /* 글자색은 투명하게 */
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.5) 50%);
+        background-size: 200% 100%; /* 배경 크기를 2배로 늘림 */
+        background-position: 100% 0; /* 처음에는 오른쪽(반투명 부분)만 보이게 셋팅 */
+
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+    }
+    .divider {
+      width: 1px;
+      height: 500px; /* 라인의 높이, 필요에 따라 조절하세요 */
+      background-color: rgba(#fff, 0.25); /* 라인 색상 */
+      position: absolute;
+      top: 360px; /* h2 텍스트 아래에 위치하도록 조정 */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      overflow: visible;
+
+      .red-dot {
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* ✨ 핵심! 더 풍부한 다중 box-shadow 적용 */
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.9),
+          0 0 15px rgba(255, 0, 0, 0.9),
+          0 0 30px rgba(255, 0, 0, 0.7),
+          0 0 50px rgba(255, 0, 0, 0.5),
+          0 0 80px rgba(255, 0, 0, 0.3);
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      li {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  /* inc08 */
+  .inc08 {
+    aspect-ratio: auto;
+    height: 100vh;
+    background: url('../images/inc08_bg.webp') no-repeat center center / cover;
+    position: relative;
+    z-index: 0;
+
+    &_images {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+
+      /* 💡 공통 플로팅 키프레임 정의 */
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        } /* 위로 살짝 뜨면서 미세하게 회전 */
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      figure {
+        position: absolute;
+        opacity: 0.7;
+        /* 💡 모든 figure에 기본 애니메이션 적용 */
+        animation: floating 4s ease-in-out infinite;
+
+        /* 각 아이템별 위치 및 애니메이션 속도/딜레이 차별화 */
+        &:nth-child(1) {
+          left: 100px;
+          top: 20px;
+          opacity: 1;
+          animation-duration: 4.5s;
+          animation-delay: 0s;
+        }
+        &:nth-child(2) {
+          left: 600px;
+          top: 100px;
+          opacity: 0.3;
+          animation-duration: 5s;
+          animation-delay: 0.5s;
+        }
+        &:nth-child(3) {
+          right: 420px;
+          top: 130px;
+          opacity: 0.3;
+          animation-duration: 3.8s;
+          animation-delay: 1.2s;
+        }
+        &:nth-child(4) {
+          right: -30px;
+          top: 85px;
+          opacity: 1;
+          animation-duration: 4.2s;
+          animation-delay: 0.8s;
+        }
+        &:nth-child(5) {
+          top: 300px;
+          left: -35px;
+          opacity: 1;
+          animation-duration: 5.5s;
+          animation-delay: 0.2s;
+        }
+        &:nth-child(6) {
+          top: 255px;
+          left: 350px;
+          opacity: 0.25;
+          animation-duration: 4.8s;
+          animation-delay: 1.5s;
+        }
+        &:nth-child(7) {
+          right: 135px;
+          top: 400px;
+          opacity: 1;
+          animation-duration: 6s;
+          animation-delay: 0.3s;
+        }
+        &:nth-child(8) {
+          left: 280px;
+          bottom: 240px;
+          opacity: 0.3;
+          animation-duration: 5.2s;
+          animation-delay: 1.8s;
+        }
+        &:nth-child(9) {
+          right: 0;
+          bottom: 170px;
+          opacity: 1;
+          animation-duration: 4.6s;
+          animation-delay: 0.7s;
+        }
+        &:nth-child(10) {
+          left: -10px;
+          bottom: 75px;
+          opacity: 1;
+          animation-duration: 5.8s;
+          animation-delay: 1.1s;
+        }
+        &:nth-child(11) {
+          right: 230px;
+          bottom: 50px;
+          opacity: 1;
+          animation-duration: 4s;
+          animation-delay: 0.9s;
+        }
+        &:nth-child(12) {
+          right: 620px;
+          bottom: 140px;
+          opacity: 0.3;
+          animation-duration: 6.5s;
+          animation-delay: 0.4s;
+        }
+      }
+    }
+
+    .inner {
+      width: 95%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 260px 0 0;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &_title {
+      font-size: 60px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    &_subtitle {
+      font-size: 27px;
+      font-weight: 400;
+      color: #e11d1d;
+      margin-bottom: 30px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      padding: 10px 20px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 20px;
+        aspect-ratio: 1/1;
+        display: block;
+      }
+
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-left: 3px solid #e11d1d;
+        border-top: 3px solid #e11d1d;
+      }
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-right: 2px solid #e11d1d;
+        border-bottom: 2px solid #e11d1d;
+      }
+    }
+
+    &_desc {
+      font-size: 30px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+
+      p {
+        margin-bottom: 12px;
+      }
+    }
+
+    &_link {
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 600;
+      background: #e11d1d;
+      border-top-left-radius: 60px;
+      border-top-right-radius: 60px;
+    }
+  }
+}

@@ -1,4 +1,67 @@
 .main{
     background: #000;
-    border: 1px solid #f00;
+    height: 100vh;
+    max-height: 1080px;
+    position: relative;
+    z-index: 0;
+
+    &_bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .inner{
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 100px;
+        p{
+            font-size: 33px;
+            font-weight: 200;
+            color: #fff;
+            
+            b{
+                font-weight: 800;
+            }
+            
+            &:first-child{
+                margin-bottom: 20px;
+            }
+        }
+        h2{
+            font-size: 84px;
+            margin-top: 35px;
+            color: #fff;
+            font-weight: 800;
+        }
+    }
+}
+
+.gradient{
+    display: inline-block;
+    background: linear-gradient(93deg, #ff6a6a, #fb0f0f, #8b89fd, #ff6a6a, #fb0f0f, #8b89fd);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: colorChange 15s ease-in-out infinite;
+}
+ @keyframes colorChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
