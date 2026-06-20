@@ -127,7 +127,7 @@ $(document).ready(function() {
             ease: gsapEase,
             scrollTrigger: {
                 trigger: el,
-                start: 'top 95%', // 요소가 화면 아래 5%쯤 보일 때 실행
+                start: 'top 90%', // 요소가 화면 아래 15%쯤 보일 때 실행
                 toggleActions: 'play none none none', // 한번만 실행
             },
         };
