@@ -69,7 +69,7 @@
         top: 60px;
         margin-left: -2700px;
         transform-origin: center center;
-        transition: transform 1.2s ease-in-out;
+        transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .circle_card {
@@ -81,8 +81,10 @@
         margin-left: -190px;
         transform-origin: center 2700px; // Pivot at circle center (radius 2700px)
         opacity: 1; // All cards fully opaque
-        transition: transform 1.2s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         z-index: 1;
+        pointer-events: auto;
+        cursor: pointer;
 
         // Position 36 cards radially (10deg steps)
         @for $i from 1 through 36 {
@@ -98,8 +100,8 @@
             overflow: hidden;
             position: relative;
             background: #000;
-            transform: scale(0.9);
-            // Removed box shadow and scale to keep cards clean and uniform in size
+            //transform: scale(0.9);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
 
             figure {
                 width: 100%;
@@ -147,6 +149,8 @@
             opacity: 1;
             z-index: 10;
             .card {
+                transform: scale(1.0);
+                //box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
                 .card_title {
                     opacity: 1; // Show title only on active card
                 }

@@ -5,6 +5,23 @@ $(document).ready(function() {
     const angleStep = 10; // 360 / 36
     let autoPlayTimer = null;
 
+    // inc05 카드 타이틀 및 alt 속성 동적 업데이트
+    $('.circle_card').each(function(idx) {
+        const typeIndex = idx % 3;
+        const titles = [
+            `영구적인 자외선(UV)<br>차단 기능`,
+            `자연 그대로의 방수 흐름<br>EVO+ 렌즈`,
+            `초고도 근시·난시도<br>완벽 교정`
+        ];
+        const alts = [
+            `영구적인 자외선(UV) 차단 기능`,
+            `자연 그대로의 방수 흐름 EVO+ 렌즈`,
+            `초고도 근시·난시도 완벽 교정`
+        ];
+        $(this).find('.card_title').html(titles[typeIndex]);
+        $(this).find('img').attr('alt', alts[typeIndex]);
+    });
+
     function updateSlider() {
         // Rotate the giant circle track
         $('.circle_track').css('transform', 'rotate(' + currentAngle + 'deg)');
@@ -20,6 +37,23 @@ $(document).ready(function() {
 
         $('.circle_card').eq(prevIndex).addClass('prev');
         $('.circle_card').eq(nextIndex).addClass('next');
+
+        // 하단 설명글 동적 업데이트
+        const typeIndex = currentIndex % 3;
+        const descriptions = [
+            `ICL 렌즈의 재질인 ‘콜라머(Collamer)’는 인체 정화 물질을<br>포함하고 있어 눈 속에서 거부반응을 일으키지 않으며,<br>유해한 UVA와 UVB를 99% 이상 차단하여 현대인의<br>망막과 수정체를 황반변성 등 질환으로부터 보호합니다.`,
+            `본원에서 사용하는 EVO+ ICL 렌즈는 센터 홀(통기공) 기술이 <br>적용되어, 안구 내의 자연스러운 눈물(방수) 흐름을 유지합니다.<br>이로 인해 과거 렌즈삽입술의 단점이었던 홍채 절개술이 필요 없고, <br>안압 상승이나 백내장 유발 가능성을 원천적으로 차단했습니다.`,
+            `렌즈의 도수를 정밀하게 맞추어 삽입하기 때문에,<br>각막 두께와 상관없이 -10디옵터 이상의<br>초고도 근시 환자도 단 한 번에 정상 시력을<br>찾을 수 있습니다.`
+        ];
+        
+        const $descText = $('.desc_block .desc_text');
+        $descText.html(descriptions[typeIndex]);
+        
+        // GSAP fade-up 효과 적용
+        gsap.fromTo($descText, 
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", overwrite: "auto" }
+        );
     }
 
     function nextSlide() {
@@ -32,12 +66,67 @@ $(document).ready(function() {
         autoPlayTimer = setInterval(nextSlide, 4000);
     }
 
+    // 카드 클릭 이벤트 추가 (클릭 시 해당 카드로 회전)
+    $('.circle_card').on('click', function() {
+        clearInterval(autoPlayTimer);
+        const clickedIndex = $(this).index();
+        
+        // 회전 방향 최적화 (가장 가까운 거리로 회전하는 로직)
+        let diff = clickedIndex - currentIndex;
+        
+        // 36개 카드 안에서 최단 거리가 되도록 보정 (-18 ~ 18 범위)
+        if (diff > totalCards / 2) {
+            diff -= totalCards;
+        } else if (diff < -totalCards / 2) {
+            diff += totalCards;
+        }
+        
+        currentIndex = (currentIndex + diff + totalCards) % totalCards;
+        currentAngle -= diff * angleStep;
+
+        updateSlider();
+        startAutoPlay();
+    });
+
     // Initialize
     updateSlider();
     startAutoPlay();
 
+    // inc02 스와이퍼 초기화
+    const inc02Swiper = new Swiper('.inc02_swiper', {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 35,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        speed: 800,
+    });
+    
+    // 초기 로드 시 자동재생 정지
+    inc02Swiper.autoplay.stop();
+
+    // ScrollTrigger로 .inc02 섹션 도달 시 스와이퍼 자동재생 재생/정지
+    ScrollTrigger.create({
+        trigger: ".inc02",
+        start: "top 80%",
+        onEnter: () => {
+            inc02Swiper.autoplay.start();
+        },
+        onLeaveBack: () => {
+            inc02Swiper.autoplay.stop();
+        }
+    });
+
     // GSAP ScrollTrigger for inc07
     gsap.registerPlugin(ScrollTrigger);
+
+    // 메인 섹션 첫 로드 애니메이션 (AOS 없이 바로 실행)
+    gsap.from(".main_bg", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from(".main .inner p:nth-child(1)", { opacity: 0, y: 50, duration: 1.0, delay: 1.0, ease: "power2.out" });
+    gsap.from(".main .inner p:nth-child(2)", { opacity: 0, y: 50, duration: 1.0, delay: 1.3, ease: "power2.out" });
+    gsap.from(".main .inner h2", { opacity: 0, y: 50, duration: 1.0, delay: 1.6, ease: "power2.out" });
 
     const inc07Timeline = gsap.timeline({
         scrollTrigger: {
@@ -130,7 +219,7 @@ $(document).ready(function() {
             ease: gsapEase,
             scrollTrigger: {
                 trigger: el,
-                start: 'top 90%', // 요소가 화면 아래 15%쯤 보일 때 실행
+                start: 'top 70%', // 요소가 화면 아래 30%쯤 보일 때 실행 (시작 위치 지연)
                 toggleActions: 'play none none none', // 한번만 실행
             },
         };
