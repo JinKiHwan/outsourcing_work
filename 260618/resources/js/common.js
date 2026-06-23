@@ -92,32 +92,6 @@ $(document).ready(function() {
     updateSlider();
     startAutoPlay();
 
-    // inc02 스와이퍼 초기화
-    const inc02Swiper = new Swiper('.inc02_swiper', {
-        loop: true,
-        slidesPerView: 2,
-        spaceBetween: 35,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        speed: 800,
-    });
-    
-    // 초기 로드 시 자동재생 정지
-    inc02Swiper.autoplay.stop();
-
-    // ScrollTrigger로 .inc02 섹션 도달 시 스와이퍼 자동재생 재생/정지
-    ScrollTrigger.create({
-        trigger: ".inc02",
-        start: "top 80%",
-        onEnter: () => {
-            inc02Swiper.autoplay.start();
-        },
-        onLeaveBack: () => {
-            inc02Swiper.autoplay.stop();
-        }
-    });
 
     // GSAP ScrollTrigger for inc07
     gsap.registerPlugin(ScrollTrigger);
