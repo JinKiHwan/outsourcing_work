@@ -1,0 +1,28 @@
+.inc03{
+    .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: min(40px, 6vw);
+        padding: min(220px, 29vw) 0;
+
+        .line{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: min(15px, 2vw);
+            
+            p{
+                font-size: min(50px, 6.5vw);
+                font-weight: 800;
+                color: #0e0e0e;
+                letter-spacing: -1px;
+            }
+
+            figure{
+                width: min(250px, 32vw);
+            }
+        }
+    }
+}
