@@ -1,12 +1,16 @@
 .main{
     background: #000;
-    //height: 100vh;
     aspect-ratio: 760/1360;
-    max-height: 100dvh;
+    //max-height: 100dvh;
     position: relative;
     z-index: 0;
     padding-top: min(130px, 17vw);
     padding-bottom: min(35px,4.5vw);
+
+    @media (max-width:480px) {
+        height: 100dvh;
+        aspect-ratio: auto;
+    }
 
     &_bg{
         position: absolute;

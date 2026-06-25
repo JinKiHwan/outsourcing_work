@@ -2,15 +2,15 @@
     background: #000 url('../images/inc08_bg.png') no-repeat;
     background-size: contain;
     background-position: center top;
-    padding-top: 200px;
-    padding-bottom: 250px;
+    padding-top: min(230px,30vw);
+    padding-bottom: min(220px,29vw);
     position: relative;
     z-index: 0;
     &::before{
         content: '';
         display: block;
         width: 100%;
-        height: 250px;
+        height: min(170px,22vw);
         background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(205, 44, 44, 1) 30%, rgba(205, 44, 44, 0) 100%);
         z-index: -1;
         position: absolute;
@@ -20,72 +20,29 @@
 
     .inner{
         h2{
-            font-size: 60px;
+            font-size: min(60px,8vw);
             color: #fff;
             line-height: 1.25;
             font-weight: 800;
-
-            &.center{
-                text-align: center;
-            }
+            letter-spacing: -1px;
         }
     }
     
     &_content-box01{
-        margin-top: 130px;
-        height: 530px;
-        display: flex;
-        justify-content: space-between;
+        margin-top: min(80px,10vw);
         .left{
-            width: 50%;
-            height: 100%;
             position: relative;
             p{
-                font-size: 36px;
+                font-size: min(36px,4.7vw);
                 color: #fff;
                 font-weight: 400;
                 line-height: 1.45;
             }
 
-            .line{
-                width: 1px;
-                height: 100%;
-                position: absolute;
-                right: 0;
-                top: 0;
-                background: linear-gradient(180deg,rgba(83, 80, 78, 0.8) 80%, rgba(83, 80, 78, 0) 100%);
-
-                span{
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-
-                    &::after{
-                        content: '';
-                        width: 10px;
-                        aspect-ratio: 1/1;
-                        background: #ff7777;
-                        display: block;
-                        position: absolute;
-                        left: 50%;
-                        top: 0;
-                        transform: translate(-50%, -50%);
-                        border-radius: 50%;
-                        box-shadow: 
-                            0 0 10px #ff4d4d,
-                            0 0 20px #ff4d4d,
-                            0 0 35px #ff4d4d,
-                            0 0 50px rgba(255, 77, 77, 0.8);
-                    }
-                }
-            }
         }
         .right{
-            width: 47%;
             p{
-                margin-bottom: 35px;
-                font-size: 21px;
+                font-size: min(27px,3.5vw);
                 color: #bbbbbb;
                 font-weight: 500;
                 line-height: 1.7;
@@ -93,47 +50,46 @@
         }
     }
     &_content-box02{
-        padding-top: 130px;
-        margin-bottom: 425px;
+        padding-top: min(480px,62vw);
+        margin-bottom: min(240px,31vw);
         position: relative;
         z-index: 0;
 
         .left{
             h2{
-                margin-bottom: 60px;
+                margin-bottom: min(45px,6vw);
             }
             p{
-                font-size: 21px;
+                font-size: min(27px,3.5vw);
                 color: #bbbbbb;
                 font-weight: 500;
                 line-height: 1.7;
-                margin-bottom: 30px;
+                margin-bottom: min(15px,2vw);
             }
         }
 
         
         .right{
             position: absolute;
-            right: -180px;
+            width: 150%;
+            right: min(-25%);
             top: 30px;
             z-index: -1;
         }
     }
     &_content-box03{
         .top{
-            display: flex;
-            justify-content: space-between;
             margin-bottom: 70px;
-            .title{
-                width: 50%;
+            h2{
+                margin-bottom: min(45px,6vw);
             }
             .desc{
                 p{
-                    font-size: 21px;
+                    font-size: min(27px,3.5vw);
                     color: #bbbbbb;
                     font-weight: 500;
-                    line-height: 1.5;
-                    margin-bottom: 20px;
+                    line-height: 1.7;
+                    margin-bottom: min(15px,2vw);
                 }
             }
         }
@@ -142,6 +98,10 @@
             ul{
                 display: flex;
                 justify-content: space-between;
+                flex-direction: column;
+                width: 85%;
+                margin: 0 auto;
+                gap: min(60px,8vw);
                 li{
                     border-radius: 50%;
                     animation: rotateShadow 6s linear infinite;

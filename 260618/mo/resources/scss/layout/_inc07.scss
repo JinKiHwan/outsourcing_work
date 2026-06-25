@@ -1,5 +1,5 @@
 .inc07 {
-    height: 1080px;
+    height: 100dvh !important;
     position: relative;
     z-index: 0;
     background: #fff;
@@ -12,7 +12,7 @@
         width: 100%;
         height: 100%;
         z-index: 1;
-        clip-path: circle(18% at 50% 50%);
+        clip-path: circle(25% at 50% 50%);
 
         &::after {
             content: '';
@@ -26,20 +26,14 @@
             z-index: 2;
         }
 
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-        }
 
         iframe {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120%;
+            width: 400%;
+            object-fit: cover;
             min-width: 100%;
             min-height: 100%;
             z-index: 1;
@@ -63,10 +57,10 @@
         }
 
         .gradient {
-            top: calc(50% - 380px);
+            top: calc(50% - min(400px,72vw) );
             left: 50%;
             transform: translateX(-50%);
-            font-size: 72px;
+            font-size: min(72px,9.4vw);
             font-weight: 800;
             text-align: center;
             white-space: nowrap;
@@ -79,10 +73,9 @@
         }
 
         .gray {
-            top: 50%;
-            right: calc(50% + 350px);
-            transform: translateY(-50%);
-            font-size: 72px;
+            top: calc(50% - min(300px, 52vw));
+            right: calc(50%);
+            font-size: min(72px,9.4vw);
             font-weight: 700;
             color: #d1d1d6;
             text-align: right;
@@ -90,14 +83,14 @@
         }
 
         .black {
-            top: 50%;
-            left: calc(50% + 360px);
+            bottom: 0;
+            right: min(20px,2.6vw);
             transform: translateY(-50%);
-            font-size: 60px;
+            font-size: min(60px,7.8vw);
             font-weight: 700;
             color: #1c1c1e;
             line-height: 1.35;
-            text-align: left;
+            text-align: right;
             white-space: nowrap;
         }
     }
@@ -119,7 +112,7 @@
         pointer-events: none;
 
         p {
-            font-size: 36px;
+            font-size: min(36px,4.7vw);
             line-height: 1.6;
             margin-bottom: 35px;
             font-weight: 500;
@@ -128,7 +121,7 @@
         }
 
         h2 {
-            font-size: 54px;
+            font-size: min(50px,6.5vw);
             line-height: 1.4;
             font-weight: 800;
             color: #fff;

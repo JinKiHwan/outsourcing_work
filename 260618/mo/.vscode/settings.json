@@ -33,5 +33,5 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "liveServer.settings.useLocalIp": true,
-    "liveServer.settings.port": 5500
+    "liveServer.settings.port": 5501
 }
