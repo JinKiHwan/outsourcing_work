@@ -263,6 +263,7 @@
     position: relative;
     z-index: 1;
     overflow-x: hidden;
+    margin-top: 200px;
 
     .inner {
         height: 100%;
@@ -378,7 +379,7 @@
     }
 
     h2 {
-        font-size: 60px;
+        font-size: 52px;
         font-weight: 800;
         line-height: 1.25;
         letter-spacing: -1px;
@@ -519,7 +520,7 @@
 .inc07 {
     background: #fff;
     padding-top: 200px;
-    padding-bottom: 140px;
+    padding-bottom: 100px;
     text-align: center;
     color: #000;
     position: relative;
@@ -827,40 +828,37 @@
         }
 
         p{
-            font-size: 21px;
+            font-size: 28px;
             line-height: 1.8;
             color: rgba($color: #fff, $alpha: 0.6);
+            white-space: nowrap;
         }
     }
 
     ul{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
     }
 }
 
 .inc13{
-    aspect-ratio: 1920/890;
-
+    width: 100%;
+    aspect-ratio: 760/1250;
+    background: #000 url('../images/inc13_bg.png') no-repeat top center/contain;
     .inner{
-        width: 50%;
-        margin-left: auto;
-        margin-right: 0;
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-left: 90px;
         flex-direction: column;
-
+        justify-content: flex-end;
+        padding-bottom: 170px;
         h2{
-            font-size: 45px;
+            font-size: 57px;
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 55px;
         }
 
         p{
-            font-size: 21px;
+            font-size: 28px;
             line-height: 1.5;
             color: rgba($color: #fff, $alpha: 0.6);
         }
