@@ -124,14 +124,15 @@
 
             li {
                 background: #131313;
-                width: 380px;
-                height: 60px;
+                width: 440px;
+                height: 70px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 padding-left: 21px;
                 border-radius: 16px;
                 gap: 13px;
+                font-size: 18px;
                 color: rgba($color: #fff, $alpha: 0.6);
 
                 &:not(:last-child) {
@@ -248,7 +249,7 @@
             position: absolute;
             z-index: 1;
             left: 0;
-            top: 7%;
+            top: 2.5%;
             font-size: 60px;
             font-weight: 800;
             line-height: 1.25;
