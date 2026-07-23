@@ -6,15 +6,23 @@ $(function () {
         once: true
     });
 
-    // inc05_items li 클릭 시 active 토글 및 형제 li active 제거
-    $('.inc05_items ul li').on('click', function () {
-        var idx = $(this).index();
-        $(this).addClass('active').siblings().removeClass('active');
-        
-        if (idx === 1) {
-            $('.inc05_item').addClass('active');
-        } else {
-            $('.inc05_item').removeClass('active');
-        }
-    });
+    // half_line 스크롤 감지 시 위에서 아래로 펼쳐지는 애니메이션 (IntersectionObserver)
+    var halfLines = document.querySelectorAll('.half_line');
+    if (halfLines.length > 0) {
+        var observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        halfLines.forEach(function (line) {
+            observer.observe(line);
+        });
+    }
 });
