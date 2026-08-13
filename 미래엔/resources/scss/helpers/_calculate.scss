@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+$base-width: 1920;
+$base-mo-width: 750;
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+@function vw($px) {
+  @return math.div(strip-unit($px), $base-width) * 100vw;
+}
+
+@function vwm($px) {
+  @return math.div(strip-unit($px), $base-mo-width) * 100vw;
+}

@@ -1,0 +1,173 @@
+@use '../helpers/' as *;
+
+.header{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    padding: vw(16px) 0;
+
+    @include mobile{
+        padding: vwm(25px) 0 ;
+    }
+
+    .inner{
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        h1{
+            @include mobile{
+                width: vwm(183px);
+                margin-right: auto;
+            }
+        }
+    }
+
+    &_utils {
+        display: flex;
+        align-items: center;
+        gap: vw(12px);
+
+        @include mobile{
+            gap:vwm(22px)
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+
+
+            &.pc{
+                @include mobile{
+                    display: none;
+                }
+            }
+
+            &.mo{
+                display: none;
+                @include mobile{
+                    display: flex;
+                }
+            }
+        }
+
+        .btn_home {
+            display: flex;
+            align-items: center;
+            background: #000;
+            border-radius: vw(25px);
+            height: vw(50px);
+            padding: 0 vw(24px);
+            gap: vw(12px);
+            transition: opacity 0.25s;
+
+            @include mobile{
+                width: vwm(60px);
+                aspect-ratio: 1/1;
+                height: auto;
+                border-radius: 50%;
+                justify-content: center;
+            }
+
+            span {
+                font-family: 'Isamanru', sans-serif;
+                font-size: vw(18px);
+                font-weight: 500;
+                color: #fff;
+                line-height: 1;
+                padding-top: vw(5px);
+
+                @include mobile{
+                    display: none;
+                }
+            }
+
+            .ico_home {
+                height: vw(20px);
+                width: auto;
+
+                @include mobile{
+                    height: vwm(23px);
+                }
+            }
+
+            .ico_arrow {
+                height: vw(14px);
+                width: auto;
+                transition: transform 0.25s;
+
+                @include mobile{
+                    display: none;
+                }
+            }
+
+            &:hover {
+                opacity: 0.85;
+                .ico_arrow {
+                    transform: translateX(vw(5px));
+                }
+            }
+        }
+
+        .btn_sns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            border-radius: 50%;
+            width: vw(50px);
+            height: vw(50px);
+            transition: opacity 0.25s;
+
+            @include mobile{
+                width: vwm(60px);
+                height: auto;
+                aspect-ratio: 1/1;
+            }
+
+            img {
+                height: vw(18px);
+                width: auto;
+            }
+
+            &.youtube img {
+                height: vw(18px); // YouTube logo ratio is wide, slightly reduce height
+
+                @include mobile{
+                    height: vwm(22px);
+                }
+            }
+
+            &.instagram img {
+                height: vw(20px); // instagram logo ratio is wide, slightly reduce height
+
+                @include mobile{
+                    height: vwm(32px);
+                }
+            }
+            
+            &.kakao img {
+                height: vw(22px); // KakaoTalk icon height
+
+                @include mobile{
+                    height: vwm(32px);
+                    transform: translate(vwm(1.5px),vwm(1px6));
+                }
+            }
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+.mobile_menu{
+    width: vwm(42px);
+    margin-right: vwm(30px);
+}
