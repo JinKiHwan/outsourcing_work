@@ -239,3 +239,18 @@
         }
     }
 }
+
+.chocotime_banner{
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1920px;
+
+    img{
+        width: 100%;
+    }
+
+}

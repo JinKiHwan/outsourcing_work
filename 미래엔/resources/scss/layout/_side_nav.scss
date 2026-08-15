@@ -1,0 +1,82 @@
+@use '../helpers/' as *;
+
+.side_nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &-item {
+        border: 2px solid transparent;
+        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 22px 36px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #5A371E;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+            line-height: 1.2;
+
+            i {
+                display: inline-flex;
+                align-items: center;
+
+                img {
+                    display: block;
+                    width: auto;
+                    height: 20px;
+                }
+            }
+        }
+
+        &.is-active {
+            background-color: #FF9FBA;
+            border-color: #FF8AAB;
+
+            a {
+                color: #ffffff;
+            }
+        }
+
+        &:hover:not(.is-active) {
+            background-color: #FFF5F7;
+        }
+    }
+
+    .btn_top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 18px 0;
+        background-color: #5A371E;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 800;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #422714;
+        }
+    }
+}

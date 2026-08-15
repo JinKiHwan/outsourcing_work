@@ -11,10 +11,40 @@
 
 <body>
     <div id="wrap">
-        <header></header>
+        <header class="header">
+            <a class="pink_label" href="javascript:void(0)" target="_blank" >
+                <span class="yellow-label">
+                    <i class="siren">
+                        <img src="/resources/images/img_siren.svg" alt="siren">
+                    </i>
+                    선착순
+                </span>
+                <p>
+                    <img src="/resources/images/header_label-desc.png" alt="초코 회원이라면 누구나 무료! 지금 신청">
+                </p>
+            </a>
+            <div class="header_inner">
+                <h1>
+                    <img src="/resources/images/logo.png" alt="초코">
+                </h1>
+
+                <ul class="header_utils">
+                    <li>
+                        <a class="login" href="javascript:void(0)">
+                            로그인
+                        </a>
+                    </li>
+                    <li>
+                        <h1>
+                            <img src="/resources/images/ci.png" alt="미래엔">
+                        </h1>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
         <!-- 메인 비주얼 -->
-        <section class="main_visual">
+        <section class="main_visual" id="main">
             <div class="section-content">
 
                 <!-- 메인비주얼 효과 아이템 -->
@@ -135,7 +165,7 @@
         </section>
 
         <!-- 폼 섹션 -->
-        <section class="form_section">
+        <section class="form_section" id="form">
             <div class="section-content">
                 <div class="inner">
                     <figure class="form_section-bubble">
@@ -285,7 +315,7 @@
         </section>
 
         <!-- 역사 비디오 섹션 -->
-        <section class="history_section">
+        <section class="history_section" id="history">
             <div class="section-content">
                 <div class="inner">
                     <h2 class="history_section-title">
@@ -324,7 +354,7 @@
         </section>
         
         <!-- 여름방학 한 눈에보기 섹션 -->
-        <section class="subject_overview">
+        <section class="subject_overview" id="subject">
             <div class="section-content">
                 <div class="inner">
                     <h2 class="subject_overview-title">
@@ -687,7 +717,7 @@
         </section>
 
         <!-- 라이브 클래스 섹션 -->
-         <section class="live_class">
+         <section class="live_class" id="live">
             <div class="section-content">
                 <div class="inner">
                     <p class="live_class-99">
@@ -753,6 +783,38 @@
                 </div>
             </div>
         </footer>
+
+        <!-- 초코타임 배너 -->
+         <div class="chocotime_banner">
+            <a href="javascript:void(0)" target="_blank">
+                <img src="/resources/images/chocotime_banner.png" alt="마감 전, 빠르게 초코타임 신청하러 가자">
+            </a>
+         </div>
+
+         <!-- 사이드 네비바 -->
+         <div class="side_nav">
+             <ul class="side_nav-list">
+                 <li class="side_nav-item">
+                     <a href="#form">계기교육 안내</a>
+                 </li>
+                 <li class="side_nav-item">
+                     <a href="#history">초코타임 미리보기</a>
+                 </li>
+                 <li class="side_nav-item">
+                     <a href="#subject">
+                         커리큘럼과목
+                         <i><img src="/resources/images/fire.svg" alt=""></i>
+                     </a>
+                 </li>
+                 <li class="side_nav-item">
+                     <a href="#live">
+                         신청하기
+                         <i><img src="/resources/images/gift.svg" alt=""></i>
+                     </a>
+                 </li>
+             </ul>
+             <button type="button" class="btn_top">TOP ▲</button>
+         </div>
     </div>
 
     <!-- 스크립트 -->

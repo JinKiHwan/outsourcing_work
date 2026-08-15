@@ -71,4 +71,71 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // 사이드 네비 TOP 버튼 클릭 이벤트
+    const btnTop = document.querySelector('.side_nav .btn_top');
+    if (btnTop) {
+        btnTop.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // 사이드 네비게이션 스크롤 스파이 & 클릭 이동
+    const sideNav = document.querySelector('.side_nav');
+    if (sideNav) {
+        const navItems = sideNav.querySelectorAll('.side_nav-item');
+        const navLinks = sideNav.querySelectorAll('.side_nav-item a');
+
+        // 클릭 시 해당 섹션으로 부드럽게 스크롤 이동
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.startsWith('#')) {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // 섹션 스크롤 위치 감지하여 is-active 클래스 변경
+        const sections = Array.from(navLinks)
+            .map(function (link) {
+                const id = link.getAttribute('href');
+                return id && id.startsWith('#') ? document.querySelector(id) : null;
+            })
+            .filter(Boolean);
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + window.innerHeight / 3;
+
+            let currentSection = null;
+            sections.forEach(function (section) {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                if (scrollPos >= top && scrollPos < top + height) {
+                    currentSection = section;
+                }
+            });
+
+            navItems.forEach(function (item) {
+                item.classList.remove('is-active');
+            });
+
+            if (currentSection) {
+                const activeLink = sideNav.querySelector(`.side_nav-item a[href="#${currentSection.id}"]`);
+                if (activeLink && activeLink.parentElement) {
+                    activeLink.parentElement.classList.add('is-active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+    }
 });
