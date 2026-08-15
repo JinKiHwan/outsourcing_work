@@ -1,0 +1,218 @@
+@use '../helpers/' as *;
+
+.subject_overview{
+    height: 1570px;
+    background-color: #FFF6C8;
+    .section-content{
+        padding-top: 120px;
+        padding-bottom: 100px;
+        height: 100%;
+        background: url('/resources/images/subject_overview-bg.png') no-repeat center center/cover;
+    }
+
+    &-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        &::before{
+            content: '';
+            display: block;
+            width: 114px;
+            aspect-ratio: 114/55;
+            background: url('/resources/images/subject_overview-choco.png') no-repeat center center/contain;
+        }
+    }
+
+    &-tab{
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        list-style: none;
+        margin-top: 40px;
+        margin-bottom: 70px;        
+        gap: 24px;
+        position: relative;
+        z-index: 0;
+
+        &::before{
+            content: '';
+            width: 1920px;
+            height: 26px;
+            background: url('/resources/images/tab_line.png') no-repeat center center / contain;
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -70%);
+        }
+
+        .tab-item{
+            width: 188px;
+            aspect-ratio: 188/69;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            @for $i from 1 through 4 {
+                $num: if($i < 10, '0#{$i}', '#{$i}');
+
+                &:nth-child(#{$i}) {
+                    background-image: url('/resources/images/tab_#{$num}-off.png');
+
+                    &.is-active {
+                        background-image: url('/resources/images/tab_#{$num}-on.png');
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper{
+        overflow: visible;
+    }
+
+    &-swiper_wrap{
+        position: relative;
+        z-index: 0;
+        width: 95%;
+        max-width: 1200px;
+        aspect-ratio: 1200/991;
+        margin: 0 auto;
+        background: url('/resources/images/subject_overview-swiper-bg.png') no-repeat center center/contain;
+        &::before,
+        &::after{
+            content: '';
+            display: block;
+            width: 39px;
+            aspect-ratio: 39/128;
+            background: url('/resources/images/rope.png') no-repeat center center/contain;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            transform: translateY(-90%);
+        }
+
+        &::before{
+            left: 5%;
+        }
+
+        &::after{
+            right: 5%;
+        }
+
+        .subject_overview-swiper{
+            padding: 64px 87px;
+        }
+
+        .swiper-slide{
+
+            .swiper-slide-title{
+                position: absolute;
+                left: 50%;
+                top: -100px;
+                transform: translateX(-50%);
+                width:  894px;
+                aspect-ratio: 894/78;
+            }
+
+            .slide-inner{
+
+                .slide-top{
+                    padding-bottom: 30px;
+                    border-bottom: 1px solid #D8CEBE;
+                }
+
+                .slide-bottom{
+                    padding-top: 30px;
+                }
+
+                h3{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 26px;
+                }
+
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    gap: 24px;
+
+                    &.arrow_list{
+                        gap: 10px;
+                    }
+
+                    li{
+                        text-align: center;
+                        color: #5A371E;
+
+                        &.arrow{
+                            padding-top: 88px;
+                        }
+
+                        figure{
+                            margin-bottom: 20px;
+                        }
+
+                        dl{
+                            dt{
+                                font-size: 22px;
+                                font-weight: 800;
+                                margin-bottom: 8px;
+                            }
+
+                            dd{
+                                font-size: 18px;
+                                line-height: 1.35;
+                            }
+                        }
+                    }
+                }
+
+                .slide_article-desc{
+                    text-align: center;
+                    color: #6F5745;
+                    font-size: 18px;
+                    line-height: 1.35;
+
+                    span{
+                        color: #888888;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+        .swiper-btn{
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 60px;
+            height: 60px;
+            background: url('/resources/images/swiper-btn.png') no-repeat center center / contain;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+
+            &-prev{
+                left: -80px;
+            }
+
+            &-next{
+                right: -80px;
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+}

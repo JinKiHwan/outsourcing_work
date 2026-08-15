@@ -1,0 +1,148 @@
+@use '../helpers/' as *;
+
+.history_section {
+    background: #FDD7E3;
+    padding-top: 230px;
+    padding-bottom: 100px;
+
+    &-title {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+        position: relative;
+        z-index: 0;
+
+        span{
+            display: inline-block;
+            position: relative;
+            z-index: 0;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 442px;
+                aspect-ratio: 458/25;
+                background: url('/resources/images/line.png') no-repeat center center/contain;
+                position: absolute;
+                z-index: -1;
+                right: 20px;
+                bottom: 5px;
+            }
+
+            &::after{
+                content: '';
+                display: block;
+                width: 44px;
+                aspect-ratio: 44/40;
+                position: absolute;
+                z-index: 1;
+                right: -25px;
+                top: -45px;
+                background: url('/resources/images/history_section-star.png') no-repeat center center / contain;
+            }
+        }
+
+        .kite{
+            position: absolute;
+            z-index: -1;
+            left: 41.5%;
+            top: -150px;
+        }
+    }
+
+    &-desc {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    &-wrap {
+        width: 100%;
+        aspect-ratio: 1200/940;
+        background: url('/resources/images/history_section-paper.png') no-repeat center center / contain;
+        position: relative;
+        z-index: 0;
+        padding: 80px 50px;
+
+
+        &::before{
+            content: '';
+            display: block;
+            width: 40px;
+            aspect-ratio: 40/79;
+            position: absolute;
+            z-index: 1;
+            left: 5%;
+            top: 3.5%;
+            background: url('/resources/images/clip.png')no-repeat center center/contain ;
+        }
+    }
+
+    &-video_area{
+        width: 100%;
+        aspect-ratio: 1101/573;
+        position: relative;
+        z-index: 0;
+        margin-bottom: 65px;
+        overflow: hidden;
+        border-radius: 22px;
+
+        .thumbnail{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .btn_play{
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover{
+                opacity: 0.9;
+                transform: translate(-50%,-50%) scale(0.9);
+            }
+        }
+
+        video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    &-list{
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-left: 65px;
+
+        li{
+            display: flex;
+            gap: 10px;
+            color: #4D4D4D;
+
+            &::before{
+                content: '';
+                display: block;
+                width: 24px;
+                aspect-ratio: 1/1;
+                background: url('/resources/images/check.png') no-repeat center center/contain;
+            }
+        }
+    }
+}
