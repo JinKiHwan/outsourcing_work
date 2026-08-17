@@ -5,6 +5,10 @@
     padding: 70px 0 150px;
     color: #ffffff;
 
+    @include tablet{
+        padding: vwt(70) 0 vwt(150);
+    }
+
     .inner {
         max-width: 1200px;
         margin: 0 auto;
@@ -18,8 +22,18 @@
         font-weight: 800;
         margin-bottom: 40px;
 
+        @include tablet{
+            gap:vwt(12);
+            font-size: vwt(40);
+            margin-bottom: vwt(40);
+        }
+
         img {
             display: block;
+
+            @include tablet{
+                width: vwt(45);
+            }
         }
     }
 
@@ -27,6 +41,10 @@
         display: flex;
         flex-direction: column;
         gap: 36px;
+
+        @include tablet{
+            gap:vwt(36);
+        }
     }
 
     &-group {
@@ -35,6 +53,11 @@
             font-weight: 700;
             margin-bottom: 10px;
             color: #ffffff;
+
+            @include tablet{
+                font-size: vwt(22);
+                margin-bottom: vwt(10);
+            }
         }
 
         ul {
@@ -48,8 +71,16 @@
                 line-height: 1.55;
                 color: #ffffff;
 
+                @include tablet{
+                    font-size: vwt(22);
+                }
+
                 &.indent {
                     padding-left: 16px;
+
+                    @include tablet{
+                        padding-left: vwt(16);
+                    }
                 }
 
                 .underline {

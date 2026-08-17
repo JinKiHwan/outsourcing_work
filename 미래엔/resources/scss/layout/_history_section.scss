@@ -5,6 +5,11 @@
     padding-top: 230px;
     padding-bottom: 100px;
 
+    @include tablet{
+        padding-top: vwt(230);
+        padding-bottom: vwt(100);
+    }
+
     &-title {
         display: flex;
         justify-content: center;
@@ -12,10 +17,18 @@
         position: relative;
         z-index: 0;
 
+        @include tablet{
+            margin-bottom: vwt(35);
+        }
+
         span{
             display: inline-block;
             position: relative;
             z-index: 0;
+
+            @include tablet{
+                width: vwt(1000);
+            }
 
             &::before {
                 content: '';
@@ -27,6 +40,12 @@
                 z-index: -1;
                 right: 20px;
                 bottom: 5px;
+
+                @include tablet{
+                    width: vwt(442);
+                    right: vwt(20);
+                    bottom: vwt(5);
+                }
             }
 
             &::after{
@@ -47,12 +66,21 @@
             z-index: -1;
             left: 41.5%;
             top: -150px;
+
+            @include tablet{
+                width: vwt(190);
+                top: vwt(-150);
+            }
         }
     }
 
     &-desc {
         display: flex;
         justify-content: center;
+
+        @include tablet{
+            height: vwt(92);
+        }
         
     }
 
@@ -63,6 +91,10 @@
         position: relative;
         z-index: 0;
         padding: 80px 50px;
+
+        @include tablet{
+            padding: vwt(80) vwt(50);
+        }
 
 
         &::before{
@@ -75,6 +107,11 @@
             left: 5%;
             top: 3.5%;
             background: url('/resources/images/clip.png')no-repeat center center/contain ;
+
+            @include tablet{
+                width: vwt(40);
+
+            }
         }
     }
 
@@ -86,6 +123,11 @@
         margin-bottom: 65px;
         overflow: hidden;
         border-radius: 22px;
+
+        @include tablet{
+            margin-bottom: vwt(65);
+            border-radius: vwt(22);
+        }
 
         .thumbnail{
             width: 100%;
@@ -111,6 +153,15 @@
             cursor: pointer;
             transition: 0.3s ease;
 
+            @include tablet{
+                width: vwt(120);
+
+                img{
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+
             &:hover{
                 opacity: 0.9;
                 transform: translate(-50%,-50%) scale(0.9);
@@ -131,10 +182,20 @@
         gap: 16px;
         padding-left: 65px;
 
+        @include tablet{
+            font-size: vwt(24);
+            gap: vwt(16);
+            padding-left: vwt(65);
+        }
+
         li{
             display: flex;
             gap: 10px;
             color: #4D4D4D;
+
+            @include tablet{
+                gap:vwt(10)
+            }
 
             &::before{
                 content: '';
@@ -142,6 +203,10 @@
                 width: 24px;
                 aspect-ratio: 1/1;
                 background: url('/resources/images/check.png') no-repeat center center/contain;
+                
+                @include tablet{
+                    width: vwt(24);
+                }
             }
         }
     }

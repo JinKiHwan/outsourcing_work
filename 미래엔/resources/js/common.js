@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: false
+        });
+    }
+
     // 텍스트 입력 글자 수 카운트
     const textarea = document.querySelector('.form_section-textarea');
     const countDisplay = document.querySelector('.form_section-count');
@@ -86,12 +93,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // 사이드 네비게이션 스크롤 스파이 & 클릭 이동
     const sideNav = document.querySelector('.side_nav');
     if (sideNav) {
+        const toggleBtn = sideNav.querySelector('.side_nav-toggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                sideNav.classList.toggle('is-open');
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (!sideNav.contains(e.target)) {
+                sideNav.classList.remove('is-open');
+            }
+        });
+
         const navItems = sideNav.querySelectorAll('.side_nav-item');
         const navLinks = sideNav.querySelectorAll('.side_nav-item a');
 
         // 클릭 시 해당 섹션으로 부드럽게 스크롤 이동
         navLinks.forEach(function (link) {
             link.addEventListener('click', function (e) {
+                sideNav.classList.remove('is-open');
                 const targetId = this.getAttribute('href');
                 if (targetId && targetId.startsWith('#')) {
                     const targetEl = document.querySelector(targetId);

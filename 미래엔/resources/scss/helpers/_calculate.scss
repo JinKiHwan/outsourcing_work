@@ -1,6 +1,7 @@
 @use 'sass:math';
 
 $base-width: 1920;
+$base-tablet: 1200;
 $base-mo-width: 750;
 
 @function strip-unit($number) {
@@ -11,7 +12,13 @@ $base-mo-width: 750;
 }
 
 @function vw($px) {
-  @return math.div(strip-unit($px), $base-width) * 100vw;
+  $val: strip-unit($px);
+  $vw-val: math.div($val, $base-width) * 100vw;
+  @return min(#{$val}px, #{$vw-val});
+}
+
+@function vwt($px) {
+  @return math.div(strip-unit($px), $base-tablet) * 100vw;
 }
 
 @function vwm($px) {

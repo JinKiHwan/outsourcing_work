@@ -1,15 +1,84 @@
 @use '../helpers/' as *;
 
+html[data-aos] [data-aos="fade-up"],
+[data-aos="fade-up"] {
+    transform: translate3d(0, 35px, 0);
+}
+
+html[data-aos] [data-aos="fade-down"],
+[data-aos="fade-down"] {
+    transform: translate3d(0, -35px, 0);
+}
+
+html[data-aos] [data-aos="fade-right"],
+[data-aos="fade-right"] {
+    transform: translate3d(-35px, 0, 0);
+}
+
+html[data-aos] [data-aos="fade-left"],
+[data-aos="fade-left"] {
+    transform: translate3d(35px, 0, 0);
+}
+
+html[data-aos] [data-aos="fade-up-right"],
+[data-aos="fade-up-right"] {
+    transform: translate3d(-35px, 35px, 0);
+}
+
+html[data-aos] [data-aos="zoom-zero"],
+html[data-aos] [data-aos="zoom-in"],
+[data-aos="zoom-zero"],
+[data-aos="zoom-in"] {
+    opacity: 0;
+    transform: scale(0);
+
+    &.aos-animate {
+        animation: popIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@for $i from 1 through 30 {
+    $delay: $i * 50;
+    [data-aos-delay="#{$delay}"].aos-animate {
+        animation-delay: #{$delay}ms !important;
+    }
+}
+
 .main_visual{
+    aspect-ratio: 1920/980;
     height: 980px;
     background: linear-gradient(to bottom, #AFEEDD 10%, #87CFED 100%);
     overflow: visible;
+
+    @include tablet{
+        aspect-ratio: 1200/980;
+        height: auto;
+    }
 
     .section-content{
         height: 100%;
         padding-top: 150px;
         position: relative;
         z-index: 0;
+
+        @include tablet{
+            padding-top: vwt(220);
+        }
     }
 
     .inner {
@@ -21,6 +90,11 @@
     &-title{
         position: relative;        
         z-index: 0;
+        width: 726px;
+
+        @include tablet{
+            width: vwt(726);
+        }
  
         figure{
             position: absolute;
@@ -56,59 +130,147 @@
             .cloud_right{
                 right: 0;
                 bottom: 0;
+                width: vw(1153);
+                img {
+                    animation: floatCloud 6s ease-in-out infinite alternate;
+                }
             }
             .cloud_left{
                 left: 0;
                 bottom: 0;
+                width: vw(637);
+                img {
+                    animation: floatCloudReverse 7s ease-in-out infinite alternate;
+                }
             }
 
             .cloud_small{
                 left: 0;
-                top: 140px;
+                top: vw(140);
+                width: vw(286);
+                img {
+                    animation: floatY 5s ease-in-out infinite;
+                }
             }
             .cloud_xs{
-                right: 78px;
-                bottom: 308px;
+                right: vw(78);
+                bottom: vw(308);
+                width: vw(209);
+                img {
+                    animation: floatYReverse 5.5s ease-in-out infinite;
+                }
             }
             .bubble_tower{
                 left: 0;
-                top: 300px;
+                top: vw(300);
+                width: vw(368);
+                img {
+                    animation: floatY 4s ease-in-out infinite;
+                }
             }
             .bubble_land{
-                right: 190px;
-                top: 180px;
+                right: vw(190);
+                top: vw(180);
+                width: vw(292);
+                img {
+                    animation: floatYReverse 4.5s ease-in-out infinite;
+                }
             }
             .bubble_dove{
-                right: 425px;
-                bottom: 210px;
+                right: vw(425);
+                bottom: vw(210);
+                width: vw(165);
+                img {
+                    animation: floatY 3.8s ease-in-out infinite;
+                }
             }
 
             .bubble_1{
-                left: 633px;
-                top: 90px;
+                left: vw(633);
+                top: vw(90);
+                width: vw(83);
+                img {
+                    animation: floatY 3s ease-in-out infinite;
+                }
             }
             .bubble_2{
-                left: 260px;
-                top: 350px;
+                left: vw(260);
+                top: vw(350);
+                width: vw(193);
+                img {
+                    animation: floatYReverse 3.5s ease-in-out infinite;
+                }
             }
             .bubble_3{
-                left: 460px;
-                top: 654px;
+                left: vw(460);
+                top: vw(654);
+                width: vw(58);
+                img {
+                    animation: floatY 4.2s ease-in-out infinite;
+                }
             }
             .bubble_4{
-                right: 70px;
-                top: 250px;
+                right: vw(70);
+                top: vw(250);
+                width: vw(30);
+                img {
+                    animation: floatYReverse 2.8s ease-in-out infinite;
+                }
             }
             .bubble_5{
-                right: 400px;
-                top: 350px;
+                right: vw(400);
+                top: vw(350);
+                width: vw(105);
+                img {
+                    animation: floatY 3.6s ease-in-out infinite;
+                }
             }
             .bubble_6{
-                right: 116px;
-                top: 660px;
+                right: vw(116);
+                top: vw(660);
+                width: vw(47);
+                img {
+                    animation: floatYReverse 4s ease-in-out infinite;
+                }
             }
         }
     }
+
+@keyframes floatY {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes floatYReverse {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(12px);
+    }
+}
+
+@keyframes floatCloud {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-10px, -8px);
+    }
+}
+
+@keyframes floatCloudReverse {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(10px, -8px);
+    }
+}
 
     &-outline{
         width: 100%;
@@ -135,12 +297,24 @@
             left: -12%;
             top: 15%;
             z-index: -1;
+
+            @include tablet{
+                width: vwt(300);
+                left: 0px;
+                top: vwt(120);
+            }
         }
         .outline-char{
             width: 570px;
             position: relative;
             z-index: 0;
             margin-left: 135px;
+
+            @include tablet{
+                width: vwt(550);
+                margin-left: vwt(120);
+            }
+
             &::before{
                 content: '';
                 display: block;
@@ -150,7 +324,12 @@
                 z-index: -1;
                 left: 0;
                 bottom: 50px;
-                background: url(/resources/images/white_flower01.png);
+                background: url(/resources/images/white_flower01.png) center center / contain;
+
+                @include tablet{
+                    width: vwt(350);
+                    bottom: vwt(50);
+                }
             }
         }
 
@@ -165,12 +344,24 @@
             flex-direction: column;
             align-items: center;
             gap: 16px;
+            
+            @include tablet{
+                width: 95%;
+            }
             &-wrap{
                 width: 100%;
                 aspect-ratio: 1197/236;
                 background: url('/resources/images/paper.png') no-repeat center center/contain;
                 display: flex;
                 padding-top: 25px;
+
+                @include tablet{
+                    padding-top: vwt(25);
+                }
+
+                @include mobile{
+                    padding-top: vwm(25);
+                }
             }
 
             &::before{
@@ -183,6 +374,12 @@
                 width: 148px;
                 aspect-ratio: 168/146;
                 background: url('/resources/images/white_flower02.png') no-repeat center center/contain;
+
+                @include tablet{
+                    width: vwt(140);
+                    top:vwt(-70);
+                    right:vwt(350)
+                }
             }
 
             dl{
@@ -194,27 +391,51 @@
                 align-items: center;
                 color: #333;
                 gap: 16px;
-
+                
+                @include mobile{
+                    gap: vwt(16);
+                }
                 &:nth-child(1){
                     width: 30%;
                 }
                 &:nth-child(2){
                     width: 25%;
                     transform: translateY(-10px);
+
+                    @include mobile{
+                        transform: translateY(vwm(-10));
+                    }
                 }
                 &:nth-child(3){
                     margin-left: 55px;
                     transform: translateY(-20px);
+
+                    @include tablet{
+                        margin-left: vwt(85);
+                    }
+
+                    @include mobile{
+                        margin-left: vwm(55);
+                        transform: translateY(vwm(-20));
+                    }
                 }
 
                 dt{
                     font-size: 32px;
                     font-weight: 800;
+
+                    @include tablet{
+                        font-size: vwt(32);
+                    }
                 }
 
                 dd{
                     font-size: 22px;
                     line-height: 1.25;
+
+                    @include tablet{
+                        font-size: vwt(22);
+                    }
                 }
             }
         }
@@ -225,16 +446,28 @@
             font-size: 20px;
             position: relative;
             z-index: 0;
+
+            @include tablet{
+                font-size: vwt(24);
+            }
+
             &::before{
                 content: '';
                 display: block;
                 width: 64px;
                 aspect-ratio: 64/58;
                 position: absolute;
-                right: 50px;
-                top: 0;
-                transform: translateY(-120%);
+                right: 70px;
+                top: 50px;  
+                transform: translateY(-120px);
                 background: url('/resources/images/arrow.png') no-repeat center center/contain;
+
+                @include tablet{
+                    width: vwt(64);
+                    right: vwt(70);
+                    top:vwt(50);
+                    transform: translateY(vwt(-120));
+                }
             }
         }
     }

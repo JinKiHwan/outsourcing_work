@@ -1,5 +1,6 @@
 {
     // EDITOR
+    "editor.hover.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",

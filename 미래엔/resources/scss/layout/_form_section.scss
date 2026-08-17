@@ -4,11 +4,22 @@
     background: #B0EEAF;
     padding-top: 350px;
 
+    @include tablet{
+        padding-top: vwt(350);
+    }
+
     &-bubble{
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 10px;
+        @include tablet{
+            margin-bottom: vwt(10);
+
+            img{
+                width: vwt(263);
+            }
+        }
     }
 
     &-title{
@@ -16,6 +27,11 @@
         max-width: 1116px;
         margin: 0 auto;
         margin-bottom: 70px;
+
+        @include tablet{
+            margin-bottom: vwt(70);
+            max-width: vwt(1116);
+        }
     }
 
     &-news_area{
@@ -27,6 +43,10 @@
         margin: 0 auto 50px;
         background: url('/resources/images/news_bg.png') no-repeat center bottom 30px/contain;
 
+        @include tablet{
+            max-width: vwt(1030);
+            margin: 0 auto vwt(50);
+        }
         .newspaper{
             position: absolute;
             z-index: 1;
@@ -34,12 +54,22 @@
                 right: 0;
                 top: 0;
                 width: 564px;
+
+                @include tablet{
+                    width: vwt(564);
+                }
             }
             &:nth-child(2){
                 width: 526px;
                 left: 0;
                 top: 50%;
                 transform: translateY(-40%);
+
+                @include tablet{
+                    width: vwt(526);
+                    transform: translateY(-40%);
+                }
+                
                 figure{
                     position: relative;
                     z-index: 0;
@@ -54,6 +84,11 @@
                         top: 0;
                         transform: translateY(-60%);
                         background: url('/resources/images/news_char01.png') no-repeat center center/contain;
+
+                        @include tablet{
+                            width: vwt(85);
+                            left: vwt(73);
+                        }
                     }
                 }
             }
@@ -61,6 +96,10 @@
                 width: 538px;
                 right: 0;
                 bottom: 0;
+
+                @include tablet{
+                    width: vwt(538);
+                }
             }
         }
     }
@@ -71,6 +110,10 @@
         padding-bottom: 120px;
         position: relative;
         z-index: 0;
+
+        @include tablet{
+            padding-bottom: vwt(120);
+        }
     }
 
     &-form_box {
@@ -79,6 +122,11 @@
         border-radius: 4px;
         padding: 50px 48px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+        @include tablet{
+            border-radius: vwt(4);
+            padding: vwt(50) vwt(48);
+        }
     }
 
     &-group {
@@ -89,6 +137,11 @@
             line-height: 1.4;
             margin-bottom: 24px;
             letter-spacing: -0.5px;
+
+            @include tablet{
+                font-size: vwt(33);
+                margin-bottom: vwt(24);
+            }
         }
     }
 
@@ -98,6 +151,11 @@
         color: #666666;
         margin-left: 8px;
         display: inline-block;
+
+        @include tablet{
+            font-size: vwt(20);
+            margin-left: vwt(8);
+        }
     }
 
     &-desc {
@@ -107,6 +165,12 @@
         margin-top: -12px;
         margin-bottom: 20px;
         line-height: 1.4;
+
+        @include tablet{
+            font-size: vwt(24);
+            margin-top: vwt(-12);
+            margin-bottom: vwt(20);
+        }
     }
 
     &-divider {
@@ -115,6 +179,11 @@
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 8' preserveAspectRatio='none'%3E%3Cpath d='M0,4 C150,1 300,7 450,3 C600,6 750,2 900,5 L1000,4' stroke='%23a5a5a5' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
         margin: 36px 0;
         border: none;
+
+        @include tablet{
+            height: vwt(8);
+            margin: vwt(36) 0;
+        }
     }
 
     /* 1번: 주로 사용하는 퍼블리싱 기술/환경 (복수선택 태그) */
@@ -122,6 +191,10 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 14px;
+
+        @include tablet{
+            gap: vwt(14)
+        }
     }
 
     &-skill_item {
@@ -148,12 +221,19 @@
             padding: 0 10px;
             border: 1px solid #cccccc;
             border-radius: 27px;
-            font-size: 24px; /* 1번 폰트사이즈: 24px */
+            font-size: 24px;
             color: #444444;
             background: #ffffff;
             transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
             user-select: none;
             box-sizing: border-box;
+
+            @include tablet{
+                height: vwt(54);
+                padding: 0 vwt(10);
+                border-radius: vwt(27);
+                font-size: vwt(24);
+            }
         }
     }
 
@@ -162,6 +242,10 @@
         flex-wrap: wrap;
         gap: 20px 32px;
         align-items: center;
+
+        @include tablet{
+            gap: vwt(20) vwt(32);
+        }
     }
 
     &-option_item {
@@ -171,6 +255,10 @@
         font-size: 24px; 
         color: #333333;
         user-select: none;
+
+        @include tablet{
+            font-size: vwt(24);
+        }
 
         input[type="radio"] {
             display: none;
@@ -201,6 +289,12 @@
             background: #ffffff;
             flex-shrink: 0;
 
+            @include tablet{
+                width: vwt(28);
+                height: vwt(28);
+                margin-right: vwt(10);
+            }
+
             &::after {
                 content: '';
                 display: none;
@@ -212,6 +306,12 @@
                 height: 12px;
                 border: solid #ffffff;
                 border-width: 0 2px 2px 0;
+
+                @include tablet{
+                    width: vwt(6);
+                    height: vwt(12);
+                    border-width: 0 vwt(2) vwt(2) 0;
+                }
             }
         }
     }
@@ -229,6 +329,13 @@
         font-size: 20px;
         color: #333333;
         box-sizing: border-box;
+
+        @include tablet{
+            max-width: 100%;
+            height: vwt(60);
+            font-size: vwt(20);
+            padding: 0 vwt(16);
+        }
 
         &::placeholder {
             color: #b5b5b5;
@@ -261,6 +368,12 @@
         display: block;
         background: transparent;
 
+        @include tablet{
+            height: vwt(170);
+            padding: vwt(16) vwt(20) vwt(10) vwt(20);
+            font-size: vwt(20);
+        }
+
         &:focus {
             outline: none;
         }
@@ -272,18 +385,30 @@
         align-items: center;
         padding: 4px 20px 12px 20px;
         background: #ffffff;
+
+        @include tablet{
+            padding: vwt(4) vwt(20) vwt(12) vwt(20);
+        }
     }
 
     &-count {
         font-size: 18px;
         color: #888888;
         user-select: none;
+
+        @include tablet{
+            font-size: vwt(18);
+        }
     }
 
     &-submit_wrap {
         display: flex;
         justify-content: center;
         margin-top: 50px;
+
+        @include tablet{
+            margin-top: vwt(50);
+        }
     }
 
     &-btn_submit {
@@ -302,6 +427,12 @@
         box-shadow: 0 6px 0px rgba(0, 0, 0, 1);
         transition: all 0.2s ease;
 
+        @include tablet{
+            width: vwt(480);
+            height: vwt(90);
+            font-size: vwt(50);
+        }
+
         &:hover {
             background: #ffd833;
             transform: translateY(-3px);
@@ -314,5 +445,9 @@
         right: 0;
         top: 0;
         transform: translateY(-70%);
+
+        @include tablet{
+            width: vwt(200);
+        }
     }
 }

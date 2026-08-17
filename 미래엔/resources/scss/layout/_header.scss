@@ -15,6 +15,11 @@
         padding: 8px 18px;
         gap: 24px;
 
+        @include tablet{
+            padding: vwt(8) vwt(18);
+            gap:vwt(24);
+        }
+
         .yellow-label{
             display: flex;
             justify-content: center;
@@ -28,12 +33,32 @@
             padding: 8px 16px;
             padding-left: 42px;
             margin-bottom: 8px;
+
+            @include tablet{
+                border-radius: vwt(50);
+                font-size: vwt(28);
+                padding: vwt(8) vwt(16);
+                padding-left: vwt(42);
+                margin-bottom: vwt(8);
+            }
             
             .siren{
                 position: absolute;
                 left: 0;
                 top: 0;
                 transform: translate(-30%, -29%);
+
+                @include tablet{
+                    width: vwt(70);
+                }
+            }
+        }
+
+        p{
+            img{
+                @include tablet{
+                    width: vwt(557);
+                }
             }
         }
     }
@@ -44,12 +69,26 @@
         display: flex;
         justify-content: space-between;
         margin: 40px auto 0;
+
+        @include tablet{
+            margin-top: vwt(40);
+        }
+
+        h1{
+            @include tablet{
+                width: vwt(68);
+            }
+        }
     }
 
     &_utils{
         display: flex;
         align-items: center;
         gap: 15px;
+
+        @include tablet{
+            gap:vwt(15);
+        }
 
         .login{
             border: 2px solid #000;
@@ -58,9 +97,23 @@
             padding: 8px 16px;
             transition: 0.3s ease;
 
+            @include tablet{
+                border: 1px solid #000;
+                border-radius: vwt(30);
+                padding: vwt(8) vwt(16);
+                font-size: vwt(20);
+            }
+
             &:hover{
                 background: #000;
                 color: #fff;
+            }
+        }
+
+        a{
+            display: block;
+            @include tablet{
+                width: vwt(96);
             }
         }
     }
