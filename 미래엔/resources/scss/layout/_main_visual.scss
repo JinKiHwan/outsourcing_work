@@ -131,34 +131,22 @@ html[data-aos] [data-aos="zoom-in"],
                 right: 0;
                 bottom: 0;
                 width: vw(1153);
-                img {
-                    animation: floatCloud 6s ease-in-out infinite alternate;
-                }
             }
             .cloud_left{
                 left: 0;
                 bottom: 0;
                 width: vw(637);
-                img {
-                    animation: floatCloudReverse 7s ease-in-out infinite alternate;
-                }
             }
 
             .cloud_small{
                 left: 0;
                 top: vw(140);
                 width: vw(286);
-                img {
-                    animation: floatY 5s ease-in-out infinite;
-                }
             }
             .cloud_xs{
                 right: vw(78);
                 bottom: vw(308);
                 width: vw(209);
-                img {
-                    animation: floatYReverse 5.5s ease-in-out infinite;
-                }
             }
             .bubble_tower{
                 left: 0;

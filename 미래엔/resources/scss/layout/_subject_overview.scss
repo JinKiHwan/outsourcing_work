@@ -294,20 +294,35 @@
             transform: translateY(-50%);
             z-index: 10;
             width: 60px;
-            height: 60px;
+            aspect-ratio: 1/1;
             background: url('/resources/images/swiper-btn.png') no-repeat center center / contain;
             border: none;
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 
+            @include tablet{
+                width: vwt(80);
+            }
+
             &-prev{
                 left: -80px;
+
+                @include tablet{
+                    left: vwt(10px);
+                }
             }
 
             &-next{
                 right: -80px;
                 transform: translateY(-50%) rotate(180deg);
+                @include tablet{
+                    right: vwt(10px);
+                }
+            }
+
+            &.swiper-button-disabled{
+                opacity: 0.5;
             }
         }
 }
