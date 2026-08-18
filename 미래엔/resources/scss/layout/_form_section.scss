@@ -41,7 +41,7 @@
         position: relative;
         z-index: 0;
         margin: 0 auto 50px;
-        background: url('/resources/images/news_bg.png') no-repeat center bottom 30px/contain;
+        background: url('/resources/images/news_bg.webp') no-repeat center bottom 30px/contain;
 
         @include tablet{
             max-width: vwt(1030);
@@ -83,7 +83,7 @@
                         left: 73px;
                         top: 0;
                         transform: translateY(-60%);
-                        background: url('/resources/images/news_char01.png') no-repeat center center/contain;
+                        background: url('/resources/images/news_char01.webp') no-repeat center center/contain;
 
                         @include tablet{
                             width: vwt(85);
@@ -142,6 +142,10 @@
                 font-size: vwt(33);
                 margin-bottom: vwt(24);
             }
+
+            @include mobile{
+                font-size: vwm(28);
+            }
         }
     }
 
@@ -155,6 +159,10 @@
         @include tablet{
             font-size: vwt(20);
             margin-left: vwt(8);
+        }
+
+        @include mobile{
+            font-size: vwm(20);
         }
     }
 
@@ -170,6 +178,9 @@
             font-size: vwt(24);
             margin-top: vwt(-12);
             margin-bottom: vwt(20);
+        }
+        @include mobile{
+            font-size: vwm(24);
         }
     }
 
@@ -233,6 +244,12 @@
                 border-radius: vwt(27);
                 font-size: vwt(24);
             }
+            @include mobile{
+                border-radius: vwm(27);
+                height: auto;
+                padding: vwm(10) vwm(10);
+                font-size: vwm(24);
+            }
         }
     }
 
@@ -257,6 +274,9 @@
 
         @include tablet{
             font-size: vwt(24);
+        }
+        @include mobile{
+            font-size: vwm(24);
         }
 
         input[type="radio"] {
@@ -335,6 +355,11 @@
             font-size: vwt(20);
             padding: 0 vwt(16);
         }
+        @include mobile{
+            height: vwm(60);
+            font-size: vwm(20);
+            padding: 0 vwm(16);
+        }
 
         &::placeholder {
             color: #b5b5b5;
@@ -346,7 +371,6 @@
         }
     }
 
-    /* 4번: 자유 작성 텍스트 영역 */
     &-textarea_wrap {
         width: 100%;
         border: 2px solid #02A39F;

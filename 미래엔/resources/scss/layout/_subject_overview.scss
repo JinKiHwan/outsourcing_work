@@ -7,11 +7,14 @@
     @include tablet{
         height: vwt(1570);
     }
+    @include mobile{
+        height: vwm(1270);
+    }
     .section-content{
         padding-top: 120px;
         padding-bottom: 100px;
         height: 100%;
-        background: url('/resources/images/subject_overview-bg.png') no-repeat center center/cover;
+        background: url('/resources/images/subject_overview-bg.webp') no-repeat center center/cover;
 
         @include tablet{
             padding-top: vwt(120);
@@ -35,7 +38,7 @@
             display: block;
             width: 114px;
             aspect-ratio: 114/55;
-            background: url('/resources/images/subject_overview-choco.png') no-repeat center center/contain;
+            background: url('/resources/images/subject_overview-choco.webp') no-repeat center center/contain;
 
             @include tablet{
                 width: vwt(114);
@@ -64,7 +67,7 @@
             content: '';
             width: 1920px;
             height: 26px;
-            background: url('/resources/images/tab_line.png') no-repeat center center / contain;
+            background: url('/resources/images/tab_line.webp') no-repeat center center / contain;
             position: absolute;
             z-index: -1;
             left: 50%;
@@ -96,10 +99,10 @@
                 $num: if($i < 10, '0#{$i}', '#{$i}');
 
                 &:nth-child(#{$i}) {
-                    background-image: url('/resources/images/tab_#{$num}-off.png');
+                    background-image: url('/resources/images/tab_#{$num}-off.webp');
 
                     &.is-active {
-                        background-image: url('/resources/images/tab_#{$num}-on.png');
+                        background-image: url('/resources/images/tab_#{$num}-on.webp');
                     }
                 }
             }
@@ -117,12 +120,19 @@
         max-width: 1200px;
         aspect-ratio: 1200/991;
         margin: 0 auto;
-        background: url('/resources/images/subject_overview-swiper-bg.png') no-repeat center center/contain;
+        background: url('/resources/images/subject_overview-swiper-bg.webp') no-repeat center center/contain;
 
         @include tablet{
             width: vwt(1150);
             padding: vwt(64) vwt(87);
             background-position: top center;
+        }
+
+        @include mobile{
+            border: 1px solid #B9AE9A;
+            background: #fff;
+            border-radius: vwm(8);
+            background-image: none;
         }
 
         &::before,
@@ -131,7 +141,7 @@
             display: block;
             width: 39px;
             aspect-ratio: 39/128;
-            background: url('/resources/images/rope.png') no-repeat center center/contain;
+            background: url('/resources/images/rope.webp') no-repeat center center/contain;
             position: absolute;
             z-index: 1;
             top: 0;
@@ -217,6 +227,12 @@
 
                     &.arrow_list{
                         gap: 10px;
+
+                        @include mobile{
+                            li:nth-child(even){
+                                display: none;
+                            }
+                        }
                     }
 
                     li{
@@ -225,6 +241,9 @@
 
                         @include tablet{
                             max-width: vwt(300);
+                        }
+                        @include tablet{
+                            max-width: vwm(200);
                         }
 
                         &.arrow{
@@ -253,6 +272,10 @@
                                     font-size: vwt(22);
                                     margin-bottom: vwt(8);
                                 }
+                                @include mobile{
+                                    font-size: vwm(22);
+                                    margin-bottom: vwm(8);
+                                }
                             }
 
                             dd{
@@ -261,6 +284,9 @@
 
                                 @include tablet{
                                     font-size: vwt(18);
+                                }
+                                @include mobile{
+                                    font-size: vwm(18);
                                 }
                             }
                         }
@@ -275,6 +301,9 @@
 
                     @include tablet{
                         font-size: vwt(18);
+                    }
+                    @include mobile{
+                        font-size: vwm(18);
                     }
 
                     span{
@@ -295,7 +324,7 @@
             z-index: 10;
             width: 60px;
             aspect-ratio: 1/1;
-            background: url('/resources/images/swiper-btn.png') no-repeat center center / contain;
+            background: url('/resources/images/swiper-btn.webp') no-repeat center center / contain;
             border: none;
             border-radius: 50%;
             cursor: pointer;

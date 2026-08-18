@@ -312,7 +312,7 @@ html[data-aos] [data-aos="zoom-in"],
                 z-index: -1;
                 left: 0;
                 bottom: 50px;
-                background: url(/resources/images/white_flower01.png) center center / contain;
+                background: url(/resources/images/white_flower01.webp) center center / contain;
 
                 @include tablet{
                     width: vwt(350);
@@ -339,7 +339,7 @@ html[data-aos] [data-aos="zoom-in"],
             &-wrap{
                 width: 100%;
                 aspect-ratio: 1197/236;
-                background: url('/resources/images/paper.png') no-repeat center center/contain;
+                background: url('/resources/images/paper.webp') no-repeat center center/contain;
                 display: flex;
                 padding-top: 25px;
 
@@ -361,7 +361,7 @@ html[data-aos] [data-aos="zoom-in"],
                 z-index: 1;
                 width: 148px;
                 aspect-ratio: 168/146;
-                background: url('/resources/images/white_flower02.png') no-repeat center center/contain;
+                background: url('/resources/images/white_flower02.webp') no-repeat center center/contain;
 
                 @include tablet{
                     width: vwt(140);
@@ -380,7 +380,7 @@ html[data-aos] [data-aos="zoom-in"],
                 color: #333;
                 gap: 16px;
                 
-                @include mobile{
+                @include tablet{
                     gap: vwt(16);
                 }
                 &:nth-child(1){
@@ -415,6 +415,10 @@ html[data-aos] [data-aos="zoom-in"],
                     @include tablet{
                         font-size: vwt(32);
                     }
+
+                    @include mobile{
+                        font-size: vwm(26);
+                    }
                 }
 
                 dd{
@@ -423,6 +427,9 @@ html[data-aos] [data-aos="zoom-in"],
 
                     @include tablet{
                         font-size: vwt(22);
+                    }
+                    @include mobile{
+                        font-size: vwm(16);
                     }
                 }
             }
@@ -448,7 +455,7 @@ html[data-aos] [data-aos="zoom-in"],
                 right: 70px;
                 top: 50px;  
                 transform: translateY(-120px);
-                background: url('/resources/images/arrow.png') no-repeat center center/contain;
+                background: url('/resources/images/arrow.webp') no-repeat center center/contain;
 
                 @include tablet{
                     width: vwt(64);

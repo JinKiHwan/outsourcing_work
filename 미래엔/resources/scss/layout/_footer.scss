@@ -58,6 +58,10 @@
                 font-size: vwt(22);
                 margin-bottom: vwt(10);
             }
+            @include mobile{
+                font-size: vwm(22);
+                margin-bottom: vwm(10);
+            }
         }
 
         ul {
@@ -74,12 +78,18 @@
                 @include tablet{
                     font-size: vwt(22);
                 }
+                @include mobile{
+                    font-size: vwm(22);
+                }
 
                 &.indent {
                     padding-left: 16px;
 
                     @include tablet{
                         padding-left: vwt(16);
+                    }
+                    @include mobile{
+                        padding-left: vwm(16);
                     }
                 }
 
